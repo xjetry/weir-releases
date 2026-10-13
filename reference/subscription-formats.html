@@ -1,0 +1,1332 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <title>订阅格式与响应头 · weir 手册</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 6.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="access-caps.html" />
+    
+    
+    <link rel="prev" href="protocols/socks5.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    weir 手册
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">开始使用</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../start/overview.html">
+            
+                <a href="../start/overview.html">
+            
+                    
+                    认识 weir
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../start/install-panel.html">
+            
+                <a href="../start/install-panel.html">
+            
+                    
+                    安装面板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../start/enroll-server.html">
+            
+                <a href="../start/enroll-server.html">
+            
+                    
+                    接入第一台服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../start/first-node.html">
+            
+                <a href="../start/first-node.html">
+            
+                    
+                    发布第一个节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../start/for-users.html">
+            
+                <a href="../start/for-users.html">
+            
+                    
+                    我是用户：从订阅到连上
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../start/upgrade-backup.html">
+            
+                <a href="../start/upgrade-backup.html">
+            
+                    
+                    升级与备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">概念</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../concepts/server-node-route.html">
+            
+                <a href="../concepts/server-node-route.html">
+            
+                    
+                    服务器、节点、线路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../concepts/node-axes.html">
+            
+                <a href="../concepts/node-axes.html">
+            
+                    
+                    节点的三条轴
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../concepts/protocols-cores.html">
+            
+                <a href="../concepts/protocols-cores.html">
+            
+                    
+                    协议与内核
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../concepts/two-planes.html">
+            
+                <a href="../concepts/two-planes.html">
+            
+                    
+                    面板与机器两个平面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../concepts/users-plans.html">
+            
+                <a href="../concepts/users-plans.html">
+            
+                    
+                    用户、套餐与授权体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../concepts/subscription.html">
+            
+                <a href="../concepts/subscription.html">
+            
+                    
+                    订阅与客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../concepts/glossary.html">
+            
+                <a href="../concepts/glossary.html">
+            
+                    
+                    术语对照
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">console 手册</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../console/overview.html">
+            
+                <a href="../console/overview.html">
+            
+                    
+                    总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../console/users.html">
+            
+                <a href="../console/users.html">
+            
+                    
+                    用户
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../console/plan-templates.html">
+            
+                <a href="../console/plan-templates.html">
+            
+                    
+                    套餐模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../console/resellers.html">
+            
+                <a href="../console/resellers.html">
+            
+                    
+                    分销商
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../console/billing.html">
+            
+                <a href="../console/billing.html">
+            
+                    
+                    计费
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="../console/servers/">
+            
+                <a href="../console/servers/">
+            
+                    
+                    服务器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.6.1" data-path="../console/servers/enroll.html">
+            
+                <a href="../console/servers/enroll.html">
+            
+                    
+                    接入与安装命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.2" data-path="../console/servers/addresses.html">
+            
+                <a href="../console/servers/addresses.html">
+            
+                    
+                    地址与域名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.3" data-path="../console/servers/capabilities.html">
+            
+                <a href="../console/servers/capabilities.html">
+            
+                    
+                    能力位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6.4" data-path="../console/servers/bulk.html">
+            
+                <a href="../console/servers/bulk.html">
+            
+                    
+                    批量操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="../console/nodes/">
+            
+                <a href="../console/nodes/">
+            
+                    
+                    节点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.7.1" data-path="../console/nodes/inbounds.html">
+            
+                <a href="../console/nodes/inbounds.html">
+            
+                    
+                    协议配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.2" data-path="../console/nodes/deployments.html">
+            
+                <a href="../console/nodes/deployments.html">
+            
+                    
+                    部署与应用态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.3" data-path="../console/nodes/products.html">
+            
+                <a href="../console/nodes/products.html">
+            
+                    
+                    成品节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7.4" data-path="../console/nodes/public.html">
+            
+                <a href="../console/nodes/public.html">
+            
+                    
+                    公共节点与自建节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="../console/routes/">
+            
+                <a href="../console/routes/">
+            
+                    
+                    线路
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="../console/routes/port-forward.html">
+            
+                <a href="../console/routes/port-forward.html">
+            
+                    
+                    端口转发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8.2" data-path="../console/routes/chain-proxy.html">
+            
+                <a href="../console/routes/chain-proxy.html">
+            
+                    
+                    链式代理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8.3" data-path="../console/routes/composite.html">
+            
+                <a href="../console/routes/composite.html">
+            
+                    
+                    组合线路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8.4" data-path="../console/routes/probe.html">
+            
+                <a href="../console/routes/probe.html">
+            
+                    
+                    探测与测速
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="../console/tunnels.html">
+            
+                <a href="../console/tunnels.html">
+            
+                    
+                    隧道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="../console/splitting.html">
+            
+                <a href="../console/splitting.html">
+            
+                    
+                    分流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="../console/certificates.html">
+            
+                <a href="../console/certificates.html">
+            
+                    
+                    域名与证书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="../console/logs.html">
+            
+                <a href="../console/logs.html">
+            
+                    
+                    日志
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.13" data-path="../console/settings.html">
+            
+                <a href="../console/settings.html">
+            
+                    
+                    设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.14" data-path="../console/license.html">
+            
+                <a href="../console/license.html">
+            
+                    
+                    许可证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.15" data-path="../console/federation.html">
+            
+                <a href="../console/federation.html">
+            
+                    
+                    上游面板与联邦
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">portal 手册</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../portal/home.html">
+            
+                <a href="../portal/home.html">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../portal/nodes.html">
+            
+                <a href="../portal/nodes.html">
+            
+                    
+                    节点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../portal/routes.html">
+            
+                <a href="../portal/routes.html">
+            
+                    
+                    线路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="../portal/forwards.html">
+            
+                <a href="../portal/forwards.html">
+            
+                    
+                    转发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="../portal/subscription.html">
+            
+                <a href="../portal/subscription.html">
+            
+                    
+                    订阅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="../portal/clients/">
+            
+                <a href="../portal/clients/">
+            
+                    
+                    客户端导入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.6.1" data-path="../portal/clients/mihomo.html">
+            
+                <a href="../portal/clients/mihomo.html">
+            
+                    
+                    mihomo / Clash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.2" data-path="../portal/clients/stash.html">
+            
+                <a href="../portal/clients/stash.html">
+            
+                    
+                    Stash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.3" data-path="../portal/clients/surge.html">
+            
+                <a href="../portal/clients/surge.html">
+            
+                    
+                    Surge
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.4" data-path="../portal/clients/singbox.html">
+            
+                <a href="../portal/clients/singbox.html">
+            
+                    
+                    sing-box
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.5" data-path="../portal/clients/shadowrocket.html">
+            
+                <a href="../portal/clients/shadowrocket.html">
+            
+                    
+                    Shadowrocket
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.6" data-path="../portal/clients/naive.html">
+            
+                <a href="../portal/clients/naive.html">
+            
+                    
+                    NaïveProxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6.7" data-path="../portal/clients/generic.html">
+            
+                <a href="../portal/clients/generic.html">
+            
+                    
+                    通用 / 其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="../portal/splitting.html">
+            
+                <a href="../portal/splitting.html">
+            
+                    
+                    分流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="../portal/wallet.html">
+            
+                <a href="../portal/wallet.html">
+            
+                    
+                    钱包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="../portal/account.html">
+            
+                <a href="../portal/account.html">
+            
+                    
+                    账户
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">参考</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="protocols/">
+            
+                <a href="protocols/">
+            
+                    
+                    协议配置字段
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="protocols/vless.html">
+            
+                <a href="protocols/vless.html">
+            
+                    
+                    VLESS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="protocols/shadowsocks.html">
+            
+                <a href="protocols/shadowsocks.html">
+            
+                    
+                    Shadowsocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="protocols/snell-v5.html">
+            
+                <a href="protocols/snell-v5.html">
+            
+                    
+                    Snell v5
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="protocols/snell-v6.html">
+            
+                <a href="protocols/snell-v6.html">
+            
+                    
+                    Snell v6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="protocols/mieru.html">
+            
+                <a href="protocols/mieru.html">
+            
+                    
+                    mieru
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="protocols/anytls.html">
+            
+                <a href="protocols/anytls.html">
+            
+                    
+                    AnyTLS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="protocols/naive.html">
+            
+                <a href="protocols/naive.html">
+            
+                    
+                    NaiveProxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="protocols/socks5.html">
+            
+                <a href="protocols/socks5.html">
+            
+                    
+                    SOCKS5
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.2" data-path="subscription-formats.html">
+            
+                <a href="subscription-formats.html">
+            
+                    
+                    订阅格式与响应头
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="access-caps.html">
+            
+                <a href="access-caps.html">
+            
+                    
+                    能力位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="states.html">
+            
+                <a href="states.html">
+            
+                    
+                    状态与原因码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="network-requirements.html">
+            
+                <a href="network-requirements.html">
+            
+                    
+                    端口与网络要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="weirctl.html">
+            
+                <a href="weirctl.html">
+            
+                    
+                    weirctl 与 API 令牌
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            本书使用 HonKit 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >订阅格式与响应头</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="订阅格式与响应头">订阅格式与响应头</h1>
+<p>订阅有六种输出格式，响应头告诉客户端用量、到期与名字。</p>
+<blockquote>
+<p>在哪里：用户门户 › 订阅；订阅地址用 <code>format</code> 选择格式，用 <code>client</code> 标识客户端。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>格式键</th>
+<th>内容</th>
+<th>常见客户端</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>uri</code></td>
+<td>每行一条分享 URI</td>
+<td>接受逐行链接的客户端</td>
+</tr>
+<tr>
+<td><code>base64</code></td>
+<td>URI 列表整体编码；未指定格式时也用它</td>
+<td>Shadowrocket、通用客户端</td>
+</tr>
+<tr>
+<td><code>yaml</code></td>
+<td>结构化配置</td>
+<td>mihomo、Stash</td>
+</tr>
+<tr>
+<td><code>singbox</code></td>
+<td>结构化配置</td>
+<td>sing-box</td>
+</tr>
+<tr>
+<td><code>surge</code></td>
+<td>配置文本</td>
+<td>Surge</td>
+</tr>
+<tr>
+<td><code>naive</code></td>
+<td>NaïveProxy 配置，只含该协议</td>
+<td>NaïveProxy</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>client</code> 不能脱离 <code>format</code> 单独使用，两者必须匹配；只有 <code>yaml</code>、<code>singbox</code>、<code>surge</code> 支持 <code>profile</code> 分流方案。</li>
+<li>没有可交付节点时，结构化格式仍返回空配置文档，<code>uri</code> 与 <code>base64</code> 返回空正文；这与无效订阅令牌的 <code>404</code> 不同。</li>
+<li>下列头描述实际交付内容，省略数只在大于零时出现，不能将三种省略合并成一种故障。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>响应头</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>uri</code>、<code>base64</code>、<code>surge</code> 为 <code>text/plain</code>；<code>yaml</code> 为 <code>text/yaml</code>；另两种为 <code>application/json</code>，均带 <code>charset=utf-8</code></td>
+</tr>
+<tr>
+<td><code>Cache-Control</code></td>
+<td>成功交付为 <code>no-store</code></td>
+</tr>
+<tr>
+<td><code>Profile-Title</code></td>
+<td><code>base64:</code> 前缀加编码的站点名与方案名；无方案时名称部分用 <code>default</code></td>
+</tr>
+<tr>
+<td><code>Content-Disposition</code></td>
+<td><code>inline</code> 加清理后的文件名，按格式使用 <code>.txt</code>、<code>.yaml</code>、<code>.json</code>、<code>.conf</code>；必要时附 <code>filename*</code> 保留中文</td>
+</tr>
+<tr>
+<td><code>subscription-userinfo</code></td>
+<td><code>upload=0</code>，<code>download</code> 为计费用量；有上限才写 <code>total</code>，有到期才写 <code>expire</code>。没有有效套餐时省略整头，无限额套餐使总上限省略；到期取账户与有效套餐中最早者</td>
+</tr>
+<tr>
+<td><code>profile-update-interval</code></td>
+<td>客户端更新间隔，单位小时，正值才写</td>
+</tr>
+<tr>
+<td><code>X-Weir-Degraded-Routes</code></td>
+<td>未交付的退化线路数量</td>
+</tr>
+<tr>
+<td><code>X-Weir-Omitted-Lines</code></td>
+<td>格式不能承载或材料不可用而省略的行数</td>
+</tr>
+<tr>
+<td><code>X-Weir-Skipped-Rules</code></td>
+<td>当前客户端不能表达而跳过的分流规则数</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>拉取过快时返回 <code>429</code>，并写 <code>Retry-After: 60</code>；有效令牌只在所属站点域名下可用。订阅地址本身就是凭据，不公开转发。</li>
+</ul>
+<h2 id="相关">相关</h2>
+<ul>
+<li><a href="../portal/subscription.html">订阅</a></li>
+<li><a href="../portal/clients/">客户端导入</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="protocols/socks5.html" class="navigation navigation-prev " aria-label="Previous page: SOCKS5">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="access-caps.html" class="navigation navigation-next " aria-label="Next page: 能力位">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"订阅格式与响应头","level":"6.2","depth":1,"next":{"title":"能力位","level":"6.3","depth":1,"path":"reference/access-caps.md","ref":"reference/access-caps.md","articles":[]},"previous":{"title":"SOCKS5","level":"6.1.8","depth":2,"path":"reference/protocols/socks5.md","ref":"reference/protocols/socks5.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.9-127-gb84a6f179"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"reference/subscription-formats.md","mtime":"2026-10-13T09:45:12.395Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-13T09:45:44.942Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,8 @@
+/* 颜色取自 web/src/index.css 的 --color-primary / --color-primary-light / --color-primary-label，
+   手册与控制台同一个品牌色；改那边的色值时这里同步。 */
+.book .book-body .page-inner { font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+.book .book-summary { font-family: inherit; }
+.markdown-section table { display: table; width: 100%; }
+.markdown-section pre > code { white-space: pre-wrap; word-break: break-all; }
+.markdown-section a { color: #6d5cf0; }
+.markdown-section blockquote { border-left-color: #8b7cf8; color: #4a4566; }

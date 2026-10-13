@@ -1,0 +1,6 @@
+_templates/
+*.go
+package.json
+pnpm-lock.yaml
+book.template.json
+pnpm-workspace.yaml
