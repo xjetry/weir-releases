@@ -47,7 +47,7 @@
     <link rel="next" href="subscription.html" />
     
     
-    <link rel="prev" href="routes.html" />
+    <link rel="prev" href="nodes.html" />
     
 
     </head>
@@ -681,20 +681,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="routes.html">
-            
-                <a href="routes.html">
-            
-                    
-                    线路
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="5.4" data-path="forwards.html">
+        <li class="chapter active" data-level="5.3" data-path="forwards.html">
             
                 <a href="forwards.html">
             
@@ -707,7 +694,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" data-path="subscription.html">
+        <li class="chapter " data-level="5.4" data-path="subscription.html">
             
                 <a href="subscription.html">
             
@@ -720,7 +707,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="clients/">
+        <li class="chapter " data-level="5.5" data-path="clients/">
             
                 <a href="clients/">
             
@@ -734,7 +721,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.6.1" data-path="clients/mihomo.html">
+        <li class="chapter " data-level="5.5.1" data-path="clients/mihomo.html">
             
                 <a href="clients/mihomo.html">
             
@@ -747,7 +734,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.2" data-path="clients/stash.html">
+        <li class="chapter " data-level="5.5.2" data-path="clients/stash.html">
             
                 <a href="clients/stash.html">
             
@@ -760,7 +747,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.3" data-path="clients/surge.html">
+        <li class="chapter " data-level="5.5.3" data-path="clients/surge.html">
             
                 <a href="clients/surge.html">
             
@@ -773,7 +760,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.4" data-path="clients/singbox.html">
+        <li class="chapter " data-level="5.5.4" data-path="clients/singbox.html">
             
                 <a href="clients/singbox.html">
             
@@ -786,7 +773,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.5" data-path="clients/shadowrocket.html">
+        <li class="chapter " data-level="5.5.5" data-path="clients/shadowrocket.html">
             
                 <a href="clients/shadowrocket.html">
             
@@ -799,7 +786,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.6" data-path="clients/naive.html">
+        <li class="chapter " data-level="5.5.6" data-path="clients/naive.html">
             
                 <a href="clients/naive.html">
             
@@ -812,7 +799,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6.7" data-path="clients/generic.html">
+        <li class="chapter " data-level="5.5.7" data-path="clients/generic.html">
             
                 <a href="clients/generic.html">
             
@@ -830,7 +817,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.7" data-path="splitting.html">
+        <li class="chapter " data-level="5.6" data-path="splitting.html">
             
                 <a href="splitting.html">
             
@@ -843,7 +830,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.8" data-path="wallet.html">
+        <li class="chapter " data-level="5.7" data-path="wallet.html">
             
                 <a href="wallet.html">
             
@@ -856,7 +843,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.9" data-path="account.html">
+        <li class="chapter " data-level="5.8" data-path="account.html">
             
                 <a href="account.html">
             
@@ -1112,17 +1099,17 @@
                                 <h1 id="转发">转发</h1>
 <p>转发页让你用套餐授权给你的线路自建端口转发或链式代理。</p>
 <blockquote>
-<p>在哪里：转发 › 全部 / 透明线路 / 链式线路</p>
+<p>在哪里：转发 › 转发规则 / 可用线路</p>
 </blockquote>
-<p>一条转发规则声明自己的路径与目标：客户端连到路径第一段的监听端口，流量按段经过你选的线路，最后到目标。路径里每一段都按「透传」原样转走时，规则是<strong>端口转发</strong>，列表上的形态是「透明线路」；路径里有一段按「协议」经过一张协议面时，规则是<strong>链式代理</strong>，形态是「链式线路」，到了链尾再出站。能用哪些线路、每条能站在哪一位，先看<a href="routes.html">线路</a>页。</p>
+<p>一条转发规则声明自己的路径与目标：客户端连到路径第一段的监听端口，流量按段经过你选的线路，最后到目标。路径里每一段都按「透传」原样转走时，规则是<strong>端口转发</strong>，列表上的形态是「透明线路」；路径里有一段按「协议」经过一张协议面时，规则是<strong>链式代理</strong>，形态是「链式线路」，到了链尾再出站。能用哪些线路、每条能站在哪一位，先看同页的<a href="#可用线路">可用线路</a>。</p>
 <h2 id="怎么用">怎么用</h2>
 <ol>
-<li>点「新建规则」。在「规则」块填名称，选<strong>协议</strong>（TCP、UDP 或 TCP+UDP）。</li>
+<li>点「新建规则」打开弹窗。在「规则」块填名称，选<strong>协议</strong>（TCP、UDP 或 TCP+UDP）。</li>
 <li>在「路径」块点「添加一段」，为每一段选类别（<strong>单节点线路</strong>、<strong>组合线路</strong>或<strong>隧道</strong>）和对象；选好对象后再选这一段的<strong>经过方式</strong>：<strong>透传</strong>或<strong>协议</strong>。段下方写出这一段在路径里的位置（入口、中转、出口、协议跳）。可用上移、下移调整顺序。路径摘要按「名字 ×倍率 → 目标」显示，段倍率之外套餐计费倍率另行相乘。</li>
 <li>在「目标」块定流量的终点。路径里还没有协议跳时，二选一：「自定义地址」填地址与端口，也可以直接粘一条代理 URI，解析后存进你的落地清单并选作目标；「落地节点」从你可作落地的节点里选。点「测试」从最后一段的出网节点探一次目标通不通。</li>
 <li>路径已越过协议跳时，目标只能是这条链收尾的那个对象：一个落地节点、一个<strong>成品节点</strong>，或在协议跳就是最后一段时从那个节点直接出网；「自定义地址」一档改为选一条落地 URI。</li>
 <li>「监听端口」留空或填 0 由面板自动分配。需要时展开「高级选项」改连接池大小。</li>
-<li>右栏「转发摘要」显示路径；编辑已有规则时还显示「你连接的地址」。点「创建规则」保存，回到列表。</li>
+<li>「目标」下方的「转发摘要」显示路径；编辑已有规则时还显示「你连接的地址」。点「创建规则」保存，弹窗关闭，列表刷新。</li>
 </ol>
 <h2 id="字段">字段</h2>
 <table>
@@ -1183,20 +1170,66 @@
 <p>列表列出名称、入口<strong>节点</strong>、形态、入口 / 出口地址、路径、协议、订阅 URI、流量与状态。点名称进详情页，上面有「入口（复制给客户端）」的分享链接、逐跳原因、流量与创建时间。行尾的操作：</p>
 <ul>
 <li>测试：探一次整条规则，结果写「通」或「不通」及原因。</li>
-<li>编辑、停用 / 启用、删除规则。删除后转发立即中断。</li>
+<li>编辑在当前页打开弹窗，详情页的「编辑规则」也使用同一弹窗；保存后关闭并刷新。停用 / 启用、删除规则仍在行尾操作，删除后转发立即中断。</li>
 <li>轮换凭证：只在带链尾的链式线路上出现。轮换后旧凭证立即失效，订阅需重新拉取；你的普通凭证与直连节点不受影响。</li>
 </ul>
 <p>状态徽章五档：「运行中」「部分未生效」（有一跳没在跑）、「未生效」（整条路断了）、「已停止」（权限收紧把规则停住，悬停看是哪个授权缺了）、「已停用」（你自己停的）。</p>
+<h2 id="可用线路">可用线路</h2>
+<p>「可用线路」页签列出套餐授权给你的线路，看每一条能不能作你转发路径的入口、中转或出口。</p>
+<p>一条<strong>线路</strong>是你的流量可以走的一段路：从哪儿进、经过谁、从哪儿出。这一节只读；用线路搭出自己的转发规则在「转发规则」页签做。三类线路同列一张表，因为建规则前要回答的是同一个问题——哪一条能起头、哪一条能接在中间、哪一条能收尾。</p>
+<h3 id="怎么用">怎么用</h3>
+<ol>
+<li>切到「可用线路」页签，表里是套餐授权给你的全部线路。点列头排序；点「入口 / 中转 / 出口」一列，能独自走完一整条路径的线路排在最前，其次是能作头的，再次是能作尾的。</li>
+<li>看「入口 / 中转 / 出口」三颗徽：亮着的那一位就是这条线路能站的位置。两头都亮的线路一条就够走完一整条路径；只亮中转的线路自己起不了头，接在别的线路后面照样能用。</li>
+<li>选好线路后回「转发规则」页签点「新建规则」，在「路径」里按顺序逐段选它们。</li>
+</ol>
+<h3 id="字段">字段</h3>
+<table>
+<thead>
+<tr>
+<th>列</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>名称</td>
+<td>线路名。<strong>组合线路</strong>在名字下列出经过的节点，用「→」连起来；套餐隐藏了成员时只报名字。<strong>隧道线路</strong>名字下写「可作端口转发首段 · 可添加设备」。</td>
+</tr>
+<tr>
+<td>类别</td>
+<td><strong>单节点线路</strong>、<strong>组合线路</strong>或<strong>隧道线路</strong>。</td>
+</tr>
+<tr>
+<td>入口 / 中转 / 出口</td>
+<td>三位徽章，悬停读到整句：「可作你路径的入口」「可站在你路径的中间」「可作你路径的出口」，灭着时是「不可作…」。单节点线路三位都画；组合线路与隧道线路只画入口与出口两位。</td>
+</tr>
+<tr>
+<td>倍率</td>
+<td>这条线路的计费倍率。隧道线路没有这个数，写「—」。</td>
+</tr>
+<tr>
+<td>状态</td>
+<td>单节点线路写「在线」或「离线」；隧道线路写「就绪」或「未就绪」；组合线路写「—」。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="注意">注意</h3>
+<ul>
+<li>三位都由面板判定，页面只照读。组合线路与隧道线路少画的那一颗中转徽表示「没有对这一位作过判断」，不是「不能中转」；把它读成不能，会错过一条其实可用的路径。</li>
+<li>隧道线路只能作路径的第一段，不能作尾。</li>
+<li>「—」与「×1」不是一回事：「—」是这份清单没有这个数，倍率为一倍时照常写出来。</li>
+<li>表为空写「暂无线路」：套餐里没有授权给你的线路。账户不在服务时，这里改为账户级说明。</li>
+</ul>
 <h2 id="注意">注意</h2>
 <ul>
 <li>规则只能用套餐授权给你的线路；套餐收回某条线路的授权后，经过它的规则显示「已停止」，悬停徽章看是哪个授权缺了。</li>
-<li>以隧道为第一段时，隧道出口后可直连目标，也可再接几段中转；出口尚未就绪时规则创建成功但暂不生效，列表顶部会带出这条提示。这里建的是普通转发规则，与线路页隧道线路自带的专属出口互不相干。</li>
+<li>以隧道为第一段时，隧道出口后可直连目标，也可再接几段中转；出口尚未就绪时规则创建成功但暂不生效，列表顶部会带出这条提示。这里建的是普通转发规则，与「可用线路」里隧道线路自带的专属出口互不相干。</li>
 <li>套餐隐藏了组合线路的成员时，列表与详情的路径只写「线路已隐藏」。</li>
 <li>「落地节点」的候选来自<a href="nodes.html">节点</a>页开了「落地」用途的节点；候选空着时可以在目标框里直接粘贴代理 URI，或先去节点页「添加节点」。</li>
 </ul>
 <h2 id="相关">相关</h2>
 <ul>
-<li><a href="routes.html">线路</a></li>
 <li><a href="nodes.html">节点</a></li>
 <li><a href="subscription.html">订阅</a></li>
 </ul>
@@ -1227,7 +1260,7 @@
 
             
                 
-                <a href="routes.html" class="navigation navigation-prev " aria-label="Previous page: 线路">
+                <a href="nodes.html" class="navigation navigation-prev " aria-label="Previous page: 节点">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1243,7 +1276,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"转发","level":"5.4","depth":1,"next":{"title":"订阅","level":"5.5","depth":1,"path":"portal/subscription.md","ref":"portal/subscription.md","articles":[]},"previous":{"title":"线路","level":"5.3","depth":1,"path":"portal/routes.md","ref":"portal/routes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.16"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"portal/forwards.md","mtime":"2026-10-13T09:45:12.393Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-17T18:55:18.897Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"转发","level":"5.3","depth":1,"next":{"title":"订阅","level":"5.4","depth":1,"path":"portal/subscription.md","ref":"portal/subscription.md","articles":[]},"previous":{"title":"节点","level":"5.2","depth":1,"path":"portal/nodes.md","ref":"portal/nodes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.17"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"portal/forwards.md","mtime":"2026-10-18T03:45:43.648Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-18T07:35:16.729Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
