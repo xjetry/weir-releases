@@ -1097,22 +1097,19 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="日志">日志</h1>
-<p>日志页分面板、服务器、核配置、安全、操作审计五个页签。</p>
+<p>日志页分面板、安全、操作审计三个页签。单台服务器的核日志、核配置与日志级别在<a href="servers/#诊断">服务器详情</a>的「诊断」页签。</p>
 <blockquote>
-<p>在哪里：系统 › 日志 › 面板 / 服务器 / 核配置 / 安全 / 操作审计</p>
+<p>在哪里：系统 › 日志 › 面板 / 安全 / 操作审计</p>
 </blockquote>
 <h2 id="页签">页签</h2>
 <ul>
 <li>面板：面板进程内的近期日志，可按级别、关键字（同时搜消息与属性，如 <code>job=billing</code>）与行数筛选，可开自动刷新。</li>
-<li><strong>服务器</strong>：选一台<strong>服务器</strong>，从它的 agent 现取日志，可选级别与行数。</li>
-<li>核配置：选<strong>服务器</strong>与内核，现取该内核当前落盘的配置原文；同一页签可改这个内核的日志级别，默认 <code>warn</code>。</li>
 <li>安全：登录成功与失败、登录被锁定、两步验证、订阅限流、机器被拒绝接入等安全事件，可按事件类型筛选。</li>
 <li><strong>操作审计</strong>：每次受审计的调用一行，列出时间、操作者、凭据、方法、对象、结果与来源地址；可按准入阶段、操作者、令牌、方法前缀与时间窗筛选。</li>
 </ul>
 <h2 id="注意">注意</h2>
 <ul>
-<li>面板日志重启即清空，完整历史在面板所在机器的系统日志里；<strong>服务器</strong>日志与核配置都向 agent 现取、不在面板留存，<strong>服务器</strong>离线时取不到。单次<strong>服务器</strong>日志上限 1000 行或 256 KB，核配置上限 512 KB，超出会截断。</li>
-<li>保存内核的日志级别后该内核会重启，存量连接瞬断；<strong>服务器</strong>离线时改动要等它重新上线才生效。</li>
+<li>面板日志重启即清空，完整历史在面板所在机器的系统日志里。</li>
 <li>登录事件按输入的名字计数，不存在的用户名同样计数与锁定；锁定 15 分钟内自动解除，提前解开用面板命令行 <code>weir-panel admin unlock --username U</code>。</li>
 <li><strong>操作审计</strong>里「未完成」只说明调用已过准入、还没记到结果，不证明成功、失败或已执行；被拒绝的尝试按分钟聚合成一行，次数是观测到的次数，不是完整请求数。失败的调用也可能已改动了一部分对象，找不到对得上的成功行时要回头看失败行。</li>
 <li>整台面板的调用史只有平台管理员读得到；审计只保留一段时间，过了保留期的调用查不到。</li>
@@ -1166,7 +1163,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"日志","level":"4.12","depth":1,"next":{"title":"设置","level":"4.13","depth":1,"path":"console/settings.md","ref":"console/settings.md","articles":[]},"previous":{"title":"域名与证书","level":"4.11","depth":1,"path":"console/certificates.md","ref":"console/certificates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.17"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/logs.md","mtime":"2026-10-13T09:45:12.388Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-18T07:35:16.729Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"日志","level":"4.12","depth":1,"next":{"title":"设置","level":"4.13","depth":1,"path":"console/settings.md","ref":"console/settings.md","articles":[]},"previous":{"title":"域名与证书","level":"4.11","depth":1,"path":"console/certificates.md","ref":"console/certificates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.18"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/logs.md","mtime":"2026-10-18T08:50:30.875Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-18T13:10:52.519Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
