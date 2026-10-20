@@ -1097,13 +1097,13 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="地址与域名">地址与域名</h1>
-<p>对外地址供客户端连接，转发 IP 供其它机器拨到本机；两者独立配置。域名绑定让 DNS 记录跟着机器地址走。</p>
+<p>对外地址供客户端连接，转发 IP 供其它机器拨到本机；两者独立配置。域名绑定让 DNS 记录跟着机器上报的地址走。</p>
 <blockquote>
 <p>在哪里：网络 › 服务器 › 详情 › 配置</p>
 </blockquote>
 <h2 id="怎么用">怎么用</h2>
 <ol>
-<li>在配置页的对外地址选择自动、上报地址、绑定域名或自定义地址，保存前核对确认框。</li>
+<li>在配置页的对外地址里，有绑定域名时先在「对外域名」行选用或不用域名；IPv4 / IPv6 两槽选自动、上报地址或自定义。选了域名后两槽是机器地址，不发给客户端。保存前核对确认框。卡头「探测公网 IP」让 agent 重新采集上报地址。</li>
 <li>进入详情 › 线路的转发 IP 表，添加机器间可达的 IP 或域名，并按默认选用顺序排列。</li>
 <li>在配置页的域名绑定选择托管域、前缀与地址，核对冲突和记录删除提示后保存。</li>
 <li>地址动态变化时开启动态 DNS 跟随，选择已有记录的地址族；查看检查时间和失败明细。</li>
@@ -1120,22 +1120,22 @@
 </thead>
 <tbody>
 <tr>
-<td>对外地址策略 <code>public_host_v4_policy</code> / <code>public_host_v6_policy</code></td>
-<td>按族选择</td>
-<td>编辑时为当前值</td>
-<td>客户端订阅与转发入口使用的地址；可选绑定域名。</td>
+<td>对外域名 <code>public_dns_binding_id</code></td>
+<td>否</td>
+<td>不用域名</td>
+<td>选中后订阅线路与转发入口双栈只出该域名；候选来自本页 DNS 管理里的绑定。</td>
 </tr>
 <tr>
-<td>机器地址 <code>manual_v4</code> / <code>manual_v6</code></td>
+<td>地址槽 <code>manual_v4</code> / <code>manual_v6</code></td>
 <td>否</td>
-<td>空时回落上报地址</td>
-<td>手工指定机器地址；与对外选中的域名分开保存。</td>
+<td>空时跟随上报地址（AUTO）</td>
+<td>没选域名时是客户端连接地址；选了域名时是机器地址，用于来源围栏、地址认领、联邦导出与域名不可达时的回落。可填 IP 或域名。不参与服务器间拨号。</td>
 </tr>
 <tr>
 <td>上报地址 <code>reported_ips</code></td>
 <td>只读</td>
 <td>机器上报</td>
-<td>自动地址的来源，不代表已创建 DNS 记录。</td>
+<td>AUTO 的来源，也是动态 DNS 跟随的来源；各槽 AUTO 选项的标签里带出当前值。不代表已创建 DNS 记录。</td>
 </tr>
 <tr>
 <td>转发 IP <code>dial_addresses</code></td>
@@ -1182,8 +1182,8 @@
 <p>来源撤回后行仍保留，标为「已不在上报中」，不参与拨号；钉住它的路径会扣发，不自动换地址。该来源再次上报后恢复同一行，启用状态与顺序不被重置。想固定使用另一个地址，应添加手工行并在线路中选择它。</p>
 <h2 id="注意">注意</h2>
 <ul>
-<li>修改对外地址、手工机器地址或绑定域名，不会替转发 IP 表补地址。表内没有可用条目时，这台机器不能作为被拨目标。</li>
-<li>手工机器地址仍按 IPv4 / IPv6 分族填写；转发 IP 行自身带地址族，不再是一族只能填一个互联地址。</li>
+<li>修改对外域名、地址槽或绑定域名，不会替转发 IP 表补地址。表内没有可用条目时，这台机器不能作为被拨目标。</li>
+<li>地址槽仍按 IPv4 / IPv6 分族填写；转发 IP 行自身带地址族，不再是一族只能填一个互联地址。</li>
 <li>动态 DNS 跟随机器现场探测或最近上报的地址，不跟手工固定的对外地址；手工填值不等于关闭动态跟随。</li>
 <li>删除绑定或去掉某族时，面板会删除它拥有的提供商记录；发现来的、未归绑定所有的记录不会删。必须读保存回执，失败族并不因页面保存完成而自动成功。</li>
 <li>上游镜像服务器的地址由上游同步，本地只读。</li>
@@ -1237,7 +1237,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"地址与域名","level":"4.6.2","depth":2,"next":{"title":"能力位","level":"4.6.3","depth":2,"path":"console/servers/capabilities.md","ref":"console/servers/capabilities.md","articles":[]},"previous":{"title":"接入与安装命令","level":"4.6.1","depth":2,"path":"console/servers/enroll.md","ref":"console/servers/enroll.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.19"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/servers/addresses.md","mtime":"2026-10-17T09:44:59.284Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-19T16:47:31.086Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"地址与域名","level":"4.6.2","depth":2,"next":{"title":"能力位","level":"4.6.3","depth":2,"path":"console/servers/capabilities.md","ref":"console/servers/capabilities.md","articles":[]},"previous":{"title":"接入与安装命令","level":"4.6.1","depth":2,"path":"console/servers/enroll.md","ref":"console/servers/enroll.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.20"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/servers/addresses.md","mtime":"2026-10-20T01:51:34.340Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-20T07:00:10.305Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
