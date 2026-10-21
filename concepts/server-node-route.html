@@ -1167,7 +1167,7 @@
 <p><strong>服务器代理</strong>圈中机器当前可售的协议面；<strong>单服务器线路</strong>授权机器作为转发的一跳。两者即使对应同一个机器标识，授权、属性与计费仍分别计算。撤掉其中一个，不等于收回另一个。</p>
 <h2 id="注意">注意</h2>
 <ul>
-<li>同一份协议配置在同一服务器只有一份部署；改监听端口或地址应改既有节点，不再部署一份相同配置。</li>
+<li>同一份协议配置可在同一服务器上部署多份，端口不同即可；第二份起默认名为「服务器名:端口」，可改名。每次部署都由面板端口账本与 agent 回报的外来监听共同预检，端口被占时以 <code>port_held</code> 拒绝。</li>
 <li>服务器已解绑不是被删除，行和引用仍保留，等待重新绑定机器。</li>
 <li>组合线路只包含服务器成员；要先经过隧道再走组合线路，应由端口转发或成品节点的线路段表达，不能把隧道塞进组合成员表。</li>
 <li>改组合成员、停用或隐藏会影响引用它的运行对象；保存后还要查看线路实例，不能只看组合线路自身。</li>
@@ -1222,7 +1222,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"服务器、节点、线路","level":"3.1","depth":1,"next":{"title":"节点的三条轴","level":"3.2","depth":1,"path":"concepts/node-axes.md","ref":"concepts/node-axes.md","articles":[]},"previous":{"title":"升级与备份","level":"2.6","depth":1,"path":"start/upgrade-backup.md","ref":"start/upgrade-backup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.24"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"concepts/server-node-route.md","mtime":"2026-10-13T09:45:12.387Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-21T03:36:03.982Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"服务器、节点、线路","level":"3.1","depth":1,"next":{"title":"节点的三条轴","level":"3.2","depth":1,"path":"concepts/node-axes.md","ref":"concepts/node-axes.md","articles":[]},"previous":{"title":"升级与备份","level":"2.6","depth":1,"path":"start/upgrade-backup.md","ref":"start/upgrade-backup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.25"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"concepts/server-node-route.md","mtime":"2026-10-21T07:03:21.534Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-21T17:45:16.263Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
