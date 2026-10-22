@@ -1100,7 +1100,7 @@
 <p>用户页管每一个用户账号：套餐、节点可见性、设备、用量、账本与安全设置。</p>
 <p>隧道设备展开后逐个显示身份的 IPv4 与 IPv6 隧道地址；入口不承载 IPv6 时只显示 IPv4，不显示空地址占位。</p>
 <blockquote>
-<p>在哪里：运营 › 用户 › 详情 › 概览 / 套餐管理 / 可用服务器 / 公共节点 / 隧道设备 / 用量明细 / 计费流水 / 安全</p>
+<p>在哪里：运营 › 用户 › 详情 › 概览 / 套餐管理 / 可用服务器 / 线路 / 公共节点 / 隧道设备 / 用量明细 / 计费流水 / 安全</p>
 </blockquote>
 <h2 id="怎么用">怎么用</h2>
 <ol>
@@ -1160,10 +1160,10 @@
 <td>生效中<strong>套餐</strong>里最早的到期时间与倒计时；全部永久时显示「-」。</td>
 </tr>
 <tr>
-<td>最后使用服务器</td>
+<td>最后使用节点</td>
 <td>只读</td>
 <td>—</td>
-<td>最近一次有流量的<strong>服务器</strong>。</td>
+<td>最近一次有流量的<strong>节点</strong>：成品实例的线路写「成品节点 · 成品名」；<strong>服务器</strong>上的协议面写「服务器名 · 协议配置名」；只认得出机器时写「服务器 · 机器名」。名字已删时退到 id，整段没有就省略。</td>
 </tr>
 <tr>
 <td>最后使用时间</td>
@@ -1250,6 +1250,18 @@
 <td>只读</td>
 <td>—</td>
 <td><strong>套餐</strong>总数与生效中的份数、账户到期、网卡口径的历史流量。有未归账流量时显示琥珀徽标「未归账流量」。</td>
+</tr>
+<tr>
+<td>最后在线</td>
+<td>只读</td>
+<td>—</td>
+<td>最近一次有流量的时刻，与用户列表的「最后使用时间」是同一个数；从未有流量写「从未」。</td>
+</tr>
+<tr>
+<td>最后使用节点</td>
+<td>只读</td>
+<td>—</td>
+<td>与用户列表同一列的口径。<strong>成品节点</strong>链到节点页定位那条成品，其余链到那台<strong>服务器</strong>的详情。</td>
 </tr>
 <tr>
 <td>订阅链接</td>
@@ -1378,6 +1390,8 @@
 </tbody>
 </table>
 <p>有例外的行带「已定制」徽标。可直连、可落地、可作入口、可作出口这几个角色属性按<strong>授权体</strong>授予，这里不改，要改去卖出这台<strong>服务器</strong>的那份<strong>套餐</strong>里改对应条目。</p>
+<h3 id="线路">线路</h3>
+<p>这位用户名下跑着的全部<strong>线路实例</strong>：端口转发与链式代理两族一张表，与网络 › 线路的实例表是同一张（列、行操作与规则行的「线路」一格都相同），只是属主固定为这位用户、不再出现用户筛选。形态筛选、搜索词与页码写在地址栏里，刷新与回退仍在原处。这里点「新建规则」，表单预填这位用户。页签只对平台管理员出现。</p>
 <h3 id="公共节点">公共节点</h3>
 <p>只读。列：代理、地址、来自套餐。在期<strong>套餐</strong>圈中的<strong>公共节点</strong>进入该用户的订阅与线路列表；它不改写凭据，也不统计流量。圈选与移除在「套餐管理」的套餐编辑器里做。</p>
 <h3 id="隧道设备">隧道设备</h3>
@@ -1556,7 +1570,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"用户","level":"4.2","depth":1,"next":{"title":"套餐模板","level":"4.3","depth":1,"path":"console/plan-templates.md","ref":"console/plan-templates.md","articles":[]},"previous":{"title":"总览","level":"4.1","depth":1,"path":"console/overview.md","ref":"console/overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.25"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/users.md","mtime":"2026-10-20T15:58:35.161Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-21T17:45:16.263Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"用户","level":"4.2","depth":1,"next":{"title":"套餐模板","level":"4.3","depth":1,"path":"console/plan-templates.md","ref":"console/plan-templates.md","articles":[]},"previous":{"title":"总览","level":"4.1","depth":1,"path":"console/overview.md","ref":"console/overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.26"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/users.md","mtime":"2026-10-22T00:34:37.217Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-22T00:52:35.653Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
