@@ -1107,7 +1107,8 @@
 <li>在「你的客户端」一排里点你用的客户端。每块写着「支持分流」或「仅节点列表」。</li>
 <li>下方面板以客户端名为标题，标题右侧写这份订阅正文里有几个代理、省略了几条线路。面板里先是一句这个客户端的说明，然后是「订阅链接」与复制按钮。</li>
 <li>有一键导入的客户端，点「导入 …」按钮把链接直接交给已安装的客户端；没有的，按钮写「一键导入（该客户端无 deep link）」且不可点，复制链接后在客户端里手动添加。各客户端的步骤见<a href="clients/">客户端导入</a>。</li>
-<li>支持分流的客户端可在「分流方案」里选一份方案，链接随之带上它；不选就是「默认（仅节点列表）」。方案只改变这一条链接的渲染结果，每个客户端各记各的选择。点「去分流」编辑方案。</li>
+<li>支持分流的客户端可在「分流方案」里选一份方案，链接随之带上它；不选就是「默认（仅节点列表）」。方案只改变这一条链接的分流规则与策略组，每个客户端各记各的选择。点「去分流」编辑方案。</li>
+<li>客户端面板里的「协议」一段决定这个客户端的订阅要哪些协议、按什么顺序；页面上方的「订阅内容」决定哪些线路进你的每一条订阅链接。</li>
 <li>想看客户端会拿到什么，点「预览订阅内容」。</li>
 </ol>
 <h2 id="字段">字段</h2>
@@ -1145,6 +1146,12 @@
 <td>默认（最早启用的设备）</td>
 <td>只在你有 WireGuard 隧道时出现在页顶。下方所有复制链接与导入按钮都跟随它；指定设备后用它自己的各个身份，不借用别的设备的密钥。</td>
 </tr>
+<tr>
+<td>包含仅落地线路</td>
+<td>否</td>
+<td>关</td>
+<td>页顶的开关。打开后链接、一键导入、预览与计数都包含只能作落地用的线路，这些行的名字带「 · 落地」；链接末尾多出 <code>landing=1</code>。</td>
+</tr>
 </tbody>
 </table>
 <h2 id="这份订阅里有什么">这份订阅里有什么</h2>
@@ -1153,14 +1160,25 @@
 <li>未写入正文：这一条不在这份订阅里。原因要么是这个客户端的格式装不下它的协议，要么是这条线此刻不在服务、材料被撤下了。前者换一个客户端就能拿到，后者等它恢复或联系管理员。</li>
 <li>写进了正文却不在服务：客户端里看得见这个节点，但此刻拨不通，原因随行写出。</li>
 </ul>
-<p>换一个分流方案，这几个数会一起变：方案可以把某些行藏起来。</p>
+<p>被你的订阅设置收起的行既不在正文也不算省略，单独写成「按订阅设置收起 N 条线路」。改一条订阅设置（地址族、节点例外、按行隐藏，或这个客户端的协议），这几个数会一起变。</p>
+<h2 id="订阅内容">订阅内容</h2>
+<p>页顶「订阅内容」面板管的是你的每一条订阅链接里有哪些线路，对每个客户端、每个分流方案一样生效。点「编辑…」：</p>
+<ul>
+<li>IPv4 / IPv6：两个总开关。关掉一族后，这一族的线路不进订阅；下面可以逐个节点把它加回来。两族都关时订阅只剩下方显式打开的节点。</li>
+<li>按节点例外：每个节点两行（IPv4、IPv6），各有「继承 / 开 / 关」三档；继承跟随总开关。节点没有的那一族整行禁用。已不在你授权内的节点仍列出，设置随保存保留，两族都改回继承即删除。</li>
+<li>按行隐藏：来自转发、链式代理、成品节点与隧道的行按规则整行隐藏；手工导入与公共节点不挂在任何一个授权节点下，同样按行。隐藏清单只增不减：行被删或授权变了之后，它的隐藏项仍留着，面板会写出「N 条隐藏项已失效」，按「清理失效项」才回收。</li>
+</ul>
+<p>关掉某个节点时，取道它的线路也一并消失。</p>
+<p>同一节点同时有几种协议的直连线路时，正文里的名字带协议键（如「东京 · vless」「东京 · snell」）；IPv6 那一条再带「 · v6」。</p>
+<h2 id="协议（按客户端）">协议（按客户端）</h2>
+<p>每个客户端面板里有自己的「协议」一段：列出这份订阅正文里出现过的协议键，每个可开可关，「上移 / 下移」改优先级。开启「每个节点只取一种协议」后，一个节点上同时有几种协议的直连线路只留它能用的最靠前那种。全开、缺省顺序、不收拢等于没有设置，保存时自动清掉；只改顺序也会保留。这一段是这个客户端自己的，换一个客户端是另一张表。</p>
 <p>页面下方还有两块：<strong>公共节点</strong>清单（平台分配的共享线路，在服务的已在你的订阅里，不在服务的此刻不在、原因消除后自动回来），以及有 WireGuard 隧道时的「接入设备」。在接入设备里可以「添加设备」、改名、停用、删除；展开一台设备逐个下载它各身份的配置，并查看 IPv4 与 IPv6 隧道地址；入口不承载 IPv6 时只显示 IPv4。点「用于订阅链接」让上方的链接指向这台设备。</p>
 <h2 id="注意">注意</h2>
 <ul>
 <li>订阅链接本身就是凭据：拿到链接的人就能拉到你的节点。泄露后去<a href="account.html">账户</a>页「订阅安全」重置订阅令牌，旧链接立即失效，所有已导入的客户端要重新导入。</li>
 <li>「轮换连接密钥」也在账户页：它换掉全部协议凭证，订阅链接不变，但客户端要重新拉一次订阅才能连上。</li>
 <li>选中的分流方案被删、或选中的设备被停用后，面板不再给出链接与导入按钮，改为一句提示请你重新选：带着它的链接会指向一个不存在的对象，方案缺席时订阅地址返回 404，设备缺席时隧道被扣下。</li>
-<li>页顶出现「暂无可订阅的线路」时，去<a href="nodes.html">节点</a>页看套餐授权给你的线各自进不进订阅：可能一条都没被授权，也可能授权了的都只作落地。</li>
+<li>页顶出现「暂无可订阅的线路」时，去<a href="nodes.html">节点</a>页看套餐授权给你的线各自进不进订阅：可能一条都没被授权，也可能授权了的都只作落地（打开「包含仅落地线路」能把它们放进订阅）。</li>
 <li>客户端会在订阅界面显示的已用流量、总量、到期时间，以及更新间隔与订阅名，由面板随订阅一起给出；完整清单见<a href="../reference/subscription-formats.html">订阅格式与响应头</a>。</li>
 </ul>
 <h2 id="相关">相关</h2>
@@ -1214,7 +1232,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"订阅","level":"5.4","depth":1,"next":{"title":"客户端导入","level":"5.5","depth":1,"path":"portal/clients/index.md","ref":"portal/clients/index.md","articles":[{"title":"mihomo / Clash","level":"5.5.1","depth":2,"path":"portal/clients/mihomo.md","ref":"portal/clients/mihomo.md","articles":[]},{"title":"Stash","level":"5.5.2","depth":2,"path":"portal/clients/stash.md","ref":"portal/clients/stash.md","articles":[]},{"title":"Surge","level":"5.5.3","depth":2,"path":"portal/clients/surge.md","ref":"portal/clients/surge.md","articles":[]},{"title":"sing-box","level":"5.5.4","depth":2,"path":"portal/clients/singbox.md","ref":"portal/clients/singbox.md","articles":[]},{"title":"Shadowrocket","level":"5.5.5","depth":2,"path":"portal/clients/shadowrocket.md","ref":"portal/clients/shadowrocket.md","articles":[]},{"title":"NaïveProxy","level":"5.5.6","depth":2,"path":"portal/clients/naive.md","ref":"portal/clients/naive.md","articles":[]},{"title":"通用 / 其他","level":"5.5.7","depth":2,"path":"portal/clients/generic.md","ref":"portal/clients/generic.md","articles":[]}]},"previous":{"title":"转发","level":"5.3","depth":1,"path":"portal/forwards.md","ref":"portal/forwards.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.32"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"portal/subscription.md","mtime":"2026-10-20T15:58:35.161Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-29T04:19:09.804Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"订阅","level":"5.4","depth":1,"next":{"title":"客户端导入","level":"5.5","depth":1,"path":"portal/clients/index.md","ref":"portal/clients/index.md","articles":[{"title":"mihomo / Clash","level":"5.5.1","depth":2,"path":"portal/clients/mihomo.md","ref":"portal/clients/mihomo.md","articles":[]},{"title":"Stash","level":"5.5.2","depth":2,"path":"portal/clients/stash.md","ref":"portal/clients/stash.md","articles":[]},{"title":"Surge","level":"5.5.3","depth":2,"path":"portal/clients/surge.md","ref":"portal/clients/surge.md","articles":[]},{"title":"sing-box","level":"5.5.4","depth":2,"path":"portal/clients/singbox.md","ref":"portal/clients/singbox.md","articles":[]},{"title":"Shadowrocket","level":"5.5.5","depth":2,"path":"portal/clients/shadowrocket.md","ref":"portal/clients/shadowrocket.md","articles":[]},{"title":"NaïveProxy","level":"5.5.6","depth":2,"path":"portal/clients/naive.md","ref":"portal/clients/naive.md","articles":[]},{"title":"通用 / 其他","level":"5.5.7","depth":2,"path":"portal/clients/generic.md","ref":"portal/clients/generic.md","articles":[]}]},"previous":{"title":"转发","level":"5.3","depth":1,"path":"portal/forwards.md","ref":"portal/forwards.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.33"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"portal/subscription.md","mtime":"2026-10-31T08:10:26.184Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-31T13:55:19.647Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
