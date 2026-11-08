@@ -1096,17 +1096,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="地址与域名">地址与域名</h1>
-<p>对外地址供客户端连接，转发 IP 供其它机器拨到本机；两者独立配置。域名绑定让 DNS 记录跟着机器上报的地址走。</p>
+                                <h1 id="服务器地址">服务器地址</h1>
+<p>一台服务器交给别人拨的地址只有一张表，每行是一个 IP 或域名，带代理入口与转发入口两个位。</p>
+<p>代理入口给客户端连接（订阅线路、隧道设备配置、联邦导出），转发入口给端口转发的入口与其它服务器拨到本机。域名绑定保存后自动成为表里的一行。</p>
 <blockquote>
-<p>在哪里：网络 › 服务器 › 详情 › 配置</p>
+<p>在哪里：网络 › 服务器 › 详情 › 配置 › 服务器地址</p>
 </blockquote>
 <h2 id="怎么用">怎么用</h2>
 <ol>
-<li>在配置页的对外地址里，有绑定域名时先在「对外域名」行选用或不用域名。没选域名时，IPv4 / IPv6 两槽可选自动、上报地址或自定义；选了域名后两槽隐藏，客户端连接域名。概览以「上报地址」只读行显示 agent 上报值。保存前核对确认框。卡头「探测公网 IP」让 agent 重新采集上报地址。</li>
-<li>进入详情 › 线路的转发 IP 表，添加机器间可达的 IP 或域名，并按默认选用顺序排列。</li>
-<li>在配置页的域名绑定选择托管域、前缀与地址，核对冲突和记录删除提示后保存。</li>
-<li>地址动态变化时开启动态 DNS 跟随，选择已有记录的地址族；查看检查时间和失败明细。</li>
+<li>看表：每行显示地址、地址族、来源、两个位的开关和「生效」徽章；两个位都关的行标「未作入口」。上报行由 agent 维护，按地址族各一行，两位缺省全开。</li>
+<li>添加：填 IP 或域名，勾选两个位（缺省全开），点「添加」。上报中还没列入的地址可直接点击加为手工行。</li>
+<li>改位与排序：勾选或取消某行的位、拖动改顺序，然后「保存地址」。保存一次提交全部行的位与顺序。草稿会换掉某族的客户端连接地址时先弹确认，核对改动前后再确认；只动转发位或顺序不改客户端连接地址时直接保存。</li>
+<li>域名绑定：在同页 DNS 管理保存绑定后，这个名字自动成为来源「域名绑定」的行，两位缺省关。保存完整成功后面板问一次要不要把它作为代理入口，确认即开这一行的代理位并排到表首。</li>
+<li>探测：卡头「探测公网 IP」让 agent 重新采集公网地址，上报行随之更新，不产生草稿。</li>
 </ol>
 <h2 id="字段">字段</h2>
 <table>
@@ -1120,73 +1122,79 @@
 </thead>
 <tbody>
 <tr>
-<td>对外域名 <code>public_dns_binding_id</code></td>
-<td>否</td>
-<td>不用域名</td>
-<td>选中后订阅线路与转发入口双栈只出该域名；候选来自本页 DNS 管理里的绑定。</td>
-</tr>
-<tr>
-<td>地址槽 <code>manual_v4</code> / <code>manual_v6</code></td>
-<td>否</td>
-<td>空时跟随上报地址（AUTO）</td>
-<td>没选域名时显示，可填 IP 或域名作为客户端连接地址；选了域名时隐藏，机器地址只用于来源围栏、地址认领与联邦导出。不参与服务器间拨号。</td>
-</tr>
-<tr>
-<td>上报地址 <code>reported_ips</code></td>
-<td>只读</td>
-<td>机器上报</td>
-<td>AUTO 的来源，也是动态 DNS 跟随的来源；各槽 AUTO 选项的标签里带出当前值。不代表已创建 DNS 记录。</td>
-</tr>
-<tr>
-<td>转发 IP <code>dial_addresses</code></td>
-<td>机器被拨时须有可用条目</td>
-<td>第一条符合当前路径条件的可用条目</td>
-<td>机器间拨号的唯一地址来源，支持 IPv4、IPv6 和域名；不回落到对外地址或绑定域名。</td>
-</tr>
-<tr>
-<td>托管域与前缀</td>
-<td>建绑定时是</td>
+<td>地址 <code>address</code></td>
+<td>添加时是</td>
 <td>无</td>
-<td>前缀不能填 <code>@</code>；选择器只列凭据有效的托管域。</td>
+<td>IPv4、IPv6 或域名；已在表里的地址不能再添加。先手工添加、后来又在 DNS 管理里绑到本机的名字会有两行（手工与域名绑定），它能服务的族按两行的记录合并算。</td>
 </tr>
 <tr>
-<td>绑定地址 <code>ipv4</code> / <code>ipv6</code></td>
-<td>至少一族</td>
-<td>可探测预填</td>
-<td>可选上报地址或手填；两族都空不能保存。选中为对外域名后，这两条记录就是机器各族的对外字面量：转发入口、订阅线路与联邦导出按它们判族，没有记录的族不对外提供，不回落到上报地址。</td>
+<td>地址族 <code>family</code></td>
+<td>只读</td>
+<td>按地址判</td>
+<td>IPv4 / IPv6 / 域名。域名能服务哪些族由它的解析记录决定。</td>
 </tr>
 <tr>
-<td>动态跟随 <code>ddns_enabled</code></td>
+<td>来源 <code>origin</code></td>
+<td>只读</td>
+<td>按写入者</td>
+<td>上报（agent 上报的公网地址）、agent 声明、上游（联邦镜像同步）、域名绑定（DNS 管理保存的名字）、手工（本页添加）。</td>
+</tr>
+<tr>
+<td>代理入口 <code>proxy_entry</code></td>
 <td>否</td>
-<td>按当前绑定</td>
-<td>开启后按 <code>ddns_interval_min</code> 的周期取机器观测到的公网地址。</td>
+<td>上报与手工行开，域名绑定行关</td>
+<td>开着的行按表序第一条给订阅线路、隧道设备配置与联邦导出作客户端连接地址。</td>
 </tr>
 <tr>
-<td>跟随族 <code>ddns_v4</code> / <code>ddns_v6</code></td>
-<td>开启时至少一族</td>
-<td>按当前绑定</td>
-<td>只能选择绑定已有记录的族。</td>
+<td>转发入口 <code>forward_entry</code></td>
+<td>否</td>
+<td>上报与手工行开，域名绑定行关</td>
+<td>开着的行按表序第一条给端口转发规则作入口，也是其它服务器拨到本机的候选；被线路钉住的行不能关。经 CDN 代理的域名绑定行不能开。</td>
+</tr>
+<tr>
+<td>生效 <code>effective</code></td>
+<td>只读</td>
+<td>服务端算出</td>
+<td>「代理 v4 / v6」「转发 v4 / v6」四枚徽章各落在恰好一行上；没有一行开位的族没有徽章。</td>
+</tr>
+<tr>
+<td>在场 <code>present</code></td>
+<td>只读</td>
+<td>来源决定</td>
+<td>上报来源撤回后行仍保留，标「已不在上报中」，不再生效；再次上报后恢复同一行，位与顺序不重置。</td>
+</tr>
+<tr>
+<td>解析记录 <code>records_v4</code> / <code>records_v6</code></td>
+<td>只读</td>
+<td>面板定时解析</td>
+<td>非托管域名行由面板每 5 分钟解析一次，域名绑定行的记录就是绑定上的 A / AAAA；行标签里的括号列出它们。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="转发-ip">转发 IP</h2>
-<p>表内每行显示地址、地址族和来源。来源标签为「上报」「agent 声明」「上游」「手工」。上报来源按地址族各维护一行；同族地址改变时更新原行，不换身份。其它已上报但未入表的地址可点击添加为手工行。</p>
-<p>四种操作：</p>
+<h2 id="生效规则">生效规则</h2>
+<p>每个地址族、每个位各取表序第一条「开了该位、来源在场、能服务该族」的行。字面量只服务自己的族；域名看记录：还没解析过的名字两族都算，解析到没有记录的族不算。关掉服务器 IPv6 后，v6 字面量不再可用，也不再有 v6 的生效行。表序、位、上报撤回都会改生效行，保存前的确认框把改动前后的客户端连接地址摊开给你看。</p>
+<p>概览页签的「地址」卡按四格摘要这四个生效行，没有的族写「无」；镜像页签同一组字段。</p>
+<h2 id="域名">域名</h2>
 <ul>
-<li>添加：填写可达的 IP 或域名，新增手工行；新行排在表尾。</li>
-<li>排序：拖动行或使用排序按钮。新建路径默认选第一条符合条件的可用行，已保存路径保持原来的钉住行。</li>
-<li>启用 / 禁用：禁用后不再用于拨号，但地址仍属于这台服务器，登记和落地匹配仍识别它。</li>
-<li>删除：只允许删除手工行；来源行不能删除，可禁用。</li>
+<li>行标签写成 <code>名字 (记录)</code>：有记录时括号里列出 A 与 AAAA，如 <code>a.example.com (1.1.1.1, ::1)</code>；还没解析过显示 <code>(解析中)</code>，名字不存在或解析到没有记录显示 <code>(无记录)</code>；最近一次解析失败但有旧答案时追加「解析失败，沿用上次答案」。</li>
+<li>托管域名（DNS 管理里的绑定）的记录由面板写，不再解析；非托管域名由面板定时解析。解析结果只决定这个名字能服务哪些族，不改客户端拿到的东西——客户端连接的是域名本身。</li>
+<li>把域名作为代理入口时，订阅与设备配置里出现的是域名；端口转发入口与服务器间拨号仍按转发入口位的行。</li>
 </ul>
-<p>被线路钉住的行不能禁用或删除，对应按钮置灰并提示引用数量；先在线路中改用其它转发 IP 或删除引用。排序不受钉住限制。上游镜像服务器的表由上游同步，本地只读。</p>
-<p>来源撤回后行仍保留，标为「已不在上报中」，不参与拨号；钉住它的路径会扣发，不自动换地址。该来源再次上报后恢复同一行，启用状态与顺序不被重置。想固定使用另一个地址，应添加手工行并在线路中选择它。</p>
 <h2 id="注意">注意</h2>
 <ul>
-<li>修改对外域名、地址槽或绑定域名，不会替转发 IP 表补地址。表内没有可用条目时，这台机器不能作为被拨目标。</li>
-<li>地址槽仍按 IPv4 / IPv6 分族填写；转发 IP 行自身带地址族，不再是一族只能填一个互联地址。</li>
-<li>动态 DNS 跟随机器现场探测或最近上报的地址，不跟手工固定的对外地址；手工填值不等于关闭动态跟随。</li>
-<li>删除绑定或去掉某族时，面板会删除它拥有的提供商记录；发现来的、未归绑定所有的记录不会删。必须读保存回执，失败族并不因页面保存完成而自动成功。</li>
-<li>上游镜像服务器的地址由上游同步，本地只读。</li>
+<li>经 CDN 代理（小黄云）的域名绑定行不承载原始 TCP / UDP，不能作转发入口，开关置灰并说明原因。</li>
+<li>被线路钉住的行不能关转发入口，也不能删除；按钮置灰并提示引用数，先在线路里改用其它地址。排序不受钉住限制。</li>
+<li>上报行、域名绑定行与上游行由来源维护，不能删除；不用时关掉它的两个位。只有手工行可删。</li>
+<li>上游镜像服务器的表由上游同步，本地只读。</li>
+<li>表里没有一行开着转发入口时，这台服务器不能作为被拨目标；没有一行开着代理入口时，它上面的线路进不了订阅。</li>
+<li>保存期间服务端多了一行（新上报的族、新保存的绑定），保存会被拒并提示重载；重载后再改。</li>
+</ul>
+<h2 id="升级后对照">升级后对照</h2>
+<ul>
+<li>旧「对外 v4 / v6」与旧「对外域名」= 现在代理入口位的生效行。选中过的域名迁移成一条开着代理入口位、排在表首的域名绑定行；手工填的字面量成为开着两个位的手工行；跟随上报的槽不生成行，上报行本来就开着两个位。</li>
+<li>旧「转发 IP」表 = 现在转发入口位。原来启用的行开着转发入口，原来停用的行关着；线路钉住的行不变。</li>
+<li>经 CDN 代理的域名原来同时给端口转发作入口；迁移后端口转发入口改为表里第一条开着转发入口位的行（通常是上报地址），订阅仍是域名。</li>
+<li>面板启动日志里的迁移回执给出三项计数：默认拨号地址因置顶改变的机器数、上报行重新开位的机器数、镜像上曾选中的域名被放弃的机器数。</li>
 </ul>
 <h2 id="相关">相关</h2>
 <ul>
@@ -1237,7 +1245,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"地址与域名","level":"4.6.2","depth":2,"next":{"title":"能力位","level":"4.6.3","depth":2,"path":"console/servers/capabilities.md","ref":"console/servers/capabilities.md","articles":[]},"previous":{"title":"接入与安装命令","level":"4.6.1","depth":2,"path":"console/servers/enroll.md","ref":"console/servers/enroll.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.33"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/servers/addresses.md","mtime":"2026-10-20T21:00:34.101Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-10-31T13:55:19.647Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"地址与域名","level":"4.6.2","depth":2,"next":{"title":"能力位","level":"4.6.3","depth":2,"path":"console/servers/capabilities.md","ref":"console/servers/capabilities.md","articles":[]},"previous":{"title":"接入与安装命令","level":"4.6.1","depth":2,"path":"console/servers/enroll.md","ref":"console/servers/enroll.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.34"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/servers/addresses.md","mtime":"2026-11-08T08:57:51.395Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-11-08T10:42:03.591Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
