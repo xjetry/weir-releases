@@ -3,7 +3,7 @@
 <html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
-        <title>协议配置 · weir 手册</title>
+        <title>公共节点与自建节点 · weir 手册</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="HonKit 6.2.2">
@@ -44,10 +44,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="deployments.html" />
+    <link rel="next" href="../routes/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="products.html" />
     
 
     </head>
@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="../../start/first-node.html">
+        <li class="chapter " data-level="2.4" data-path="../../start/first-proxy-endpoint.html">
             
-                <a href="../../start/first-node.html">
+                <a href="../../start/first-proxy-endpoint.html">
             
                     
                     发布第一个节点
@@ -181,9 +181,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../../concepts/server-node-route.html">
+        <li class="chapter " data-level="3.1" data-path="../../concepts/server-proxy-endpoint-route.html">
             
-                <a href="../../concepts/server-node-route.html">
+                <a href="../../concepts/server-proxy-endpoint-route.html">
             
                     
                     服务器、节点、线路
@@ -194,9 +194,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../../concepts/node-axes.html">
+        <li class="chapter " data-level="3.2" data-path="../../concepts/proxy-endpoint-axes.html">
             
-                <a href="../../concepts/node-axes.html">
+                <a href="../../concepts/proxy-endpoint-axes.html">
             
                     
                     节点的三条轴
@@ -212,7 +212,7 @@
                 <a href="../../concepts/protocols-cores.html">
             
                     
-                    协议与内核
+                    协议与代理内核
             
                 </a>
             
@@ -318,12 +318,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="../resellers.html">
+        <li class="chapter " data-level="4.4" data-path="../tenants.html">
             
-                <a href="../resellers.html">
+                <a href="../tenants.html">
             
                     
-                    分销商
+                    租户
             
                 </a>
             
@@ -384,9 +384,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6.3" data-path="../servers/capabilities.html">
+        <li class="chapter " data-level="4.6.3" data-path="../servers/access-mask.html">
             
-                <a href="../servers/capabilities.html">
+                <a href="../servers/access-mask.html">
             
                     
                     能力位
@@ -429,7 +429,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="4.7.1" data-path="inbounds.html">
+        <li class="chapter " data-level="4.7.1" data-path="inbounds.html">
             
                 <a href="inbounds.html">
             
@@ -468,7 +468,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7.4" data-path="public.html">
+        <li class="chapter active" data-level="4.7.4" data-path="public.html">
             
                 <a href="public.html">
             
@@ -570,9 +570,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.10" data-path="../splitting.html">
+        <li class="chapter " data-level="4.10" data-path="../orchestration.html">
             
-                <a href="../splitting.html">
+                <a href="../orchestration.html">
             
                     
                     分流
@@ -668,9 +668,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../../portal/nodes.html">
+        <li class="chapter " data-level="5.2" data-path="../../portal/proxy-endpoints.html">
             
-                <a href="../../portal/nodes.html">
+                <a href="../../portal/proxy-endpoints.html">
             
                     
                     节点
@@ -817,9 +817,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="../../portal/splitting.html">
+        <li class="chapter " data-level="5.6" data-path="../../portal/orchestration.html">
             
-                <a href="../../portal/splitting.html">
+                <a href="../../portal/orchestration.html">
             
                     
                     分流
@@ -999,9 +999,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="../../reference/access-caps.html">
+        <li class="chapter " data-level="6.3" data-path="../../reference/access-mask.html">
             
-                <a href="../../reference/access-caps.html">
+                <a href="../../reference/access-mask.html">
             
                     
                     能力位
@@ -1081,7 +1081,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >协议配置</a>
+        <a href="../.." >公共节点与自建节点</a>
     </h1>
 </div>
 
@@ -1096,164 +1096,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="协议配置">协议配置</h1>
-<p>协议配置定义一条协议线怎么听、用哪个内核、用什么安全模式；部署把它放到一台服务器上。</p>
+                                <h1 id="公共节点与自建节点">公共节点与自建节点</h1>
+<p>公共节点由平台导入后定向分发，自建节点由用户自己添加。</p>
 <blockquote>
-<p>在哪里：网络 › 节点 › 协议配置</p>
+<p>在哪里：网络 › 节点 › 节点</p>
 </blockquote>
-<h2 id="怎么用">怎么用</h2>
-<ol>
-<li>在节点页点新建节点，选择协议并填写名称、默认端口和内核。</li>
-<li>按所选安全模式填 SNI、密钥或证书；托管证书与手工证书二选一。</li>
-<li>保存协议配置后选择服务器部署；逐机 TLS 模式要在各部署填写域名与证书。</li>
-<li>修改已有配置时进入协议配置页签打开编辑；涉及协议材料、证书或归属变更时，核对影响确认后保存。</li>
-</ol>
-<h2 id="字段">字段</h2>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>必填</th>
-<th>默认</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>名称 <code>name</code></td>
-<td>是</td>
-<td>空</td>
-<td>去除首尾空白后不能为空。</td>
-</tr>
-<tr>
-<td>协议 <code>protocol</code></td>
-<td>是</td>
-<td>初始为 <code>VLESS</code></td>
-<td>选择后按该协议重新限制参数、安全模式与内核。</td>
-</tr>
-<tr>
-<td>内核 <code>required_core</code></td>
-<td>是</td>
-<td>按可用候选选择</td>
-<td>必须是所选协议可承载且当前允许使用的内核；机器也必须装有该内核。</td>
-</tr>
-<tr>
-<td>默认端口 <code>default_port</code></td>
-<td>控制台必填</td>
-<td>空</td>
-<td>填 1 至 65535 的整数，作为部署表单预填值；不是所有机器都被强制改到此端口。</td>
-</tr>
-<tr>
-<td>安全模式 <code>security</code></td>
-<td>按协议</td>
-<td>初始为 <code>reality</code></td>
-<td>只能从所选协议允许的模式中选择。</td>
-</tr>
-<tr>
-<td>SNI</td>
-<td>按模式</td>
-<td>空</td>
-<td>表单里写作 <code>server-name</code>。<code>reality</code> 与 <code>tls</code> 托管证书模式必填，通配符证书要填具体一层域名；<code>VLESS</code> 无安全层时也要填；<code>NAIVE</code> 必填，逐机 TLS 时改由各部署填写。</td>
-</tr>
-<tr>
-<td>证书 <code>certificate_id</code></td>
-<td>TLS 托管模式是</td>
-<td>未选</td>
-<td>手工模式改填证书链与私钥；更换内联材料时两者必须一起换。</td>
-</tr>
-<tr>
-<td>逐机 TLS <code>tls_per_node</code></td>
-<td>否</td>
-<td>关闭</td>
-<td>仅 NaïveProxy 支持；域名与托管证书移到每个部署，不存在配置级共用证书对。</td>
-</tr>
-<tr>
-<td>协议参数 <code>protocol_params</code>、传输 <code>transport</code></td>
-<td>按协议</td>
-<td>按表单预填</td>
-<td>具体取值见协议字段参考；不能跨内核照搬参数。</td>
-</tr>
-<tr>
-<td>订阅可见性 <code>sub_visible</code></td>
-<td>否</td>
-<td>新建开启</td>
-<td>控制订阅展示，关闭不等于删除部署。</td>
-</tr>
-<tr>
-<td>出站地址族 <code>egress_domain_strategy</code></td>
-<td>否</td>
-<td><code>PREFER_IPV4</code></td>
-<td>只作用于域名目标；字面地址仍按它自己的地址族出站。</td>
-</tr>
-</tbody>
-</table>
-<p>允许的内核按偏好顺序列出；实际候选还受许可与当前可用性约束：</p>
-<table>
-<thead>
-<tr>
-<th>协议值</th>
-<th>可用内核</th>
-<th>安全模式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>VLESS</code></td>
-<td>xray、sing-box</td>
-<td><code>none</code>、<code>reality</code>、<code>tls</code></td>
-<td>传输与安全模式还须相容。</td>
-</tr>
-<tr>
-<td><code>SHADOWSOCKS</code></td>
-<td>sing-box、xray</td>
-<td>无独立安全模式</td>
-<td>加密材料属于协议参数。</td>
-</tr>
-<tr>
-<td><code>SNELL_V5</code> / <code>SNELL_V6</code></td>
-<td>sing-box</td>
-<td>无独立安全模式</td>
-<td>按各协议字段配置。</td>
-</tr>
-<tr>
-<td><code>MIERU</code></td>
-<td>mbox</td>
-<td>无独立安全模式</td>
-<td>按协议字段配置。</td>
-</tr>
-<tr>
-<td><code>ANYTLS</code></td>
-<td>sing-box</td>
-<td><code>reality</code>、<code>tls</code></td>
-<td>不能关闭安全层。</td>
-</tr>
-<tr>
-<td><code>NAIVE</code></td>
-<td>sing-box</td>
-<td><code>tls</code></td>
-<td>支持逐机证书。</td>
-</tr>
-<tr>
-<td><code>SOCKS5</code></td>
-<td>sing-box、xray、mbox</td>
-<td>无独立安全模式</td>
-<td>无传输或安全配置层。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="注意">注意</h2>
 <ul>
-<li>控制台要求默认端口非空且合法；数据字段中的零值表示未设置，不意味着表单允许留空保存。</li>
-<li>只改名称、默认端口或订阅可见性，不会重写协议材料；材料与证书改动会影响已有监听，应以确认框列出的部署为准。</li>
-<li>TLS 材料缺失或超出有效期会让部署被扣发，保留“启用”并不能绕过证书校验。</li>
-<li>逐机 TLS 的域名与证书必须在部署侧成对提供；只保存协议配置尚不能让节点接收连接。</li>
+<li>平台在节点页导入公共节点 URI，再按用户定向分发或由套餐圈选；“公共”不是匿名公开，也不是自动发给所有人。</li>
+<li>公共节点和自建节点都不引用本面板服务器；它们的直连不计量，套餐流量上限不会限制公共节点的外部使用量。</li>
+<li>公共节点有可直连、可落地两个用途位：可直连让持有它的用户订阅到这个公共节点，可落地允许成品与转发规则以它为外部落地。导入表单对新建的公共节点缺省只开可直连，可落地需要时再勾；已有公共节点的用途在它那一行上单独修改。用途允许不代表连通性已验证。</li>
+<li>导入按原文或协议、地址、端口合并；合并不会替换已有原文或用途，换凭据要删除后重新导入。提交包含坏行时整批拒绝，表单随后逐行列出被拒的行。</li>
+<li>自建节点由用户在门户添加，订阅与落地用途各自控制；持有人自己的端口转发可以指向它，不能把它当作平台服务器来配置。</li>
 </ul>
 <h2 id="相关">相关</h2>
 <ul>
-<li><a href="../../reference/protocols/">协议配置字段</a></li>
-<li><a href="deployments.html">部署与应用态</a></li>
-<li><a href="../certificates.html">域名与证书</a></li>
+<li><a href="./">节点</a></li>
+<li><a href="../plan-templates.html">套餐模板</a></li>
+<li><a href="../../portal/proxy-endpoints.html">门户节点</a></li>
 </ul>
 
                                 
@@ -1282,12 +1141,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 节点">
+                <a href="products.html" class="navigation navigation-prev " aria-label="Previous page: 成品节点">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="deployments.html" class="navigation navigation-next " aria-label="Next page: 部署与应用态">
+                <a href="../routes/" class="navigation navigation-next " aria-label="Next page: 线路">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1298,7 +1157,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"协议配置","level":"4.7.1","depth":2,"next":{"title":"部署与应用态","level":"4.7.2","depth":2,"path":"console/nodes/deployments.md","ref":"console/nodes/deployments.md","articles":[]},"previous":{"title":"节点","level":"4.7","depth":1,"path":"console/nodes/index.md","ref":"console/nodes/index.md","articles":[{"title":"协议配置","level":"4.7.1","depth":2,"path":"console/nodes/inbounds.md","ref":"console/nodes/inbounds.md","articles":[]},{"title":"部署与应用态","level":"4.7.2","depth":2,"path":"console/nodes/deployments.md","ref":"console/nodes/deployments.md","articles":[]},{"title":"成品节点","level":"4.7.3","depth":2,"path":"console/nodes/products.md","ref":"console/nodes/products.md","articles":[]},{"title":"公共节点与自建节点","level":"4.7.4","depth":2,"path":"console/nodes/public.md","ref":"console/nodes/public.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.39"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/nodes/inbounds.md","mtime":"2026-10-13T09:45:12.388Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-11-16T14:23:59.411Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"公共节点与自建节点","level":"4.7.4","depth":2,"next":{"title":"线路","level":"4.8","depth":1,"path":"console/routes/index.md","ref":"console/routes/index.md","articles":[{"title":"端口转发","level":"4.8.1","depth":2,"path":"console/routes/port-forward.md","ref":"console/routes/port-forward.md","articles":[]},{"title":"链式代理","level":"4.8.2","depth":2,"path":"console/routes/chain-proxy.md","ref":"console/routes/chain-proxy.md","articles":[]},{"title":"组合线路","level":"4.8.3","depth":2,"path":"console/routes/composite.md","ref":"console/routes/composite.md","articles":[]},{"title":"探测与测速","level":"4.8.4","depth":2,"path":"console/routes/probe.md","ref":"console/routes/probe.md","articles":[]}]},"previous":{"title":"成品节点","level":"4.7.3","depth":2,"path":"console/proxy-endpoints/products.md","ref":"console/proxy-endpoints/products.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.40"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"console/proxy-endpoints/public.md","mtime":"2026-11-20T09:41:05.891Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-11-20T15:14:34.552Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

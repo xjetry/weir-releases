@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.4" data-path="first-node.html">
+        <li class="chapter " data-level="2.4" data-path="first-proxy-endpoint.html">
             
-                <a href="first-node.html">
+                <a href="first-proxy-endpoint.html">
             
                     
                     发布第一个节点
@@ -181,9 +181,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../concepts/server-node-route.html">
+        <li class="chapter " data-level="3.1" data-path="../concepts/server-proxy-endpoint-route.html">
             
-                <a href="../concepts/server-node-route.html">
+                <a href="../concepts/server-proxy-endpoint-route.html">
             
                     
                     服务器、节点、线路
@@ -194,9 +194,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../concepts/node-axes.html">
+        <li class="chapter " data-level="3.2" data-path="../concepts/proxy-endpoint-axes.html">
             
-                <a href="../concepts/node-axes.html">
+                <a href="../concepts/proxy-endpoint-axes.html">
             
                     
                     节点的三条轴
@@ -212,7 +212,7 @@
                 <a href="../concepts/protocols-cores.html">
             
                     
-                    协议与内核
+                    协议与代理内核
             
                 </a>
             
@@ -318,12 +318,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="../console/resellers.html">
+        <li class="chapter " data-level="4.4" data-path="../console/tenants.html">
             
-                <a href="../console/resellers.html">
+                <a href="../console/tenants.html">
             
                     
-                    分销商
+                    租户
             
                 </a>
             
@@ -384,9 +384,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6.3" data-path="../console/servers/capabilities.html">
+        <li class="chapter " data-level="4.6.3" data-path="../console/servers/access-mask.html">
             
-                <a href="../console/servers/capabilities.html">
+                <a href="../console/servers/access-mask.html">
             
                     
                     能力位
@@ -415,9 +415,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7" data-path="../console/nodes/">
+        <li class="chapter " data-level="4.7" data-path="../console/proxy-endpoints/">
             
-                <a href="../console/nodes/">
+                <a href="../console/proxy-endpoints/">
             
                     
                     节点
@@ -429,9 +429,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.7.1" data-path="../console/nodes/inbounds.html">
+        <li class="chapter " data-level="4.7.1" data-path="../console/proxy-endpoints/inbounds.html">
             
-                <a href="../console/nodes/inbounds.html">
+                <a href="../console/proxy-endpoints/inbounds.html">
             
                     
                     协议配置
@@ -442,9 +442,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7.2" data-path="../console/nodes/deployments.html">
+        <li class="chapter " data-level="4.7.2" data-path="../console/proxy-endpoints/deployments.html">
             
-                <a href="../console/nodes/deployments.html">
+                <a href="../console/proxy-endpoints/deployments.html">
             
                     
                     部署与应用态
@@ -455,9 +455,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7.3" data-path="../console/nodes/products.html">
+        <li class="chapter " data-level="4.7.3" data-path="../console/proxy-endpoints/products.html">
             
-                <a href="../console/nodes/products.html">
+                <a href="../console/proxy-endpoints/products.html">
             
                     
                     成品节点
@@ -468,9 +468,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7.4" data-path="../console/nodes/public.html">
+        <li class="chapter " data-level="4.7.4" data-path="../console/proxy-endpoints/public.html">
             
-                <a href="../console/nodes/public.html">
+                <a href="../console/proxy-endpoints/public.html">
             
                     
                     公共节点与自建节点
@@ -570,9 +570,9 @@
             
         </li>
     
-        <li class="chapter " data-level="4.10" data-path="../console/splitting.html">
+        <li class="chapter " data-level="4.10" data-path="../console/orchestration.html">
             
-                <a href="../console/splitting.html">
+                <a href="../console/orchestration.html">
             
                     
                     分流
@@ -668,9 +668,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../portal/nodes.html">
+        <li class="chapter " data-level="5.2" data-path="../portal/proxy-endpoints.html">
             
-                <a href="../portal/nodes.html">
+                <a href="../portal/proxy-endpoints.html">
             
                     
                     节点
@@ -817,9 +817,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.6" data-path="../portal/splitting.html">
+        <li class="chapter " data-level="5.6" data-path="../portal/orchestration.html">
             
-                <a href="../portal/splitting.html">
+                <a href="../portal/orchestration.html">
             
                     
                     分流
@@ -999,9 +999,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="../reference/access-caps.html">
+        <li class="chapter " data-level="6.3" data-path="../reference/access-mask.html">
             
-                <a href="../reference/access-caps.html">
+                <a href="../reference/access-mask.html">
             
                     
                     能力位
@@ -1099,22 +1099,22 @@
                                 <h1 id="认识-weir">认识 weir</h1>
 <p>weir 把你的服务器、上面跑的代理内核和用户手里的客户端接成一条线，面板是接线的地方。</p>
 <h2 id="四个部分各管什么">四个部分各管什么</h2>
-<p>面板保存管理配置、提供网页入口，并把期望状态交给机器。机器上运行节点程序 <code>weir-agent</code>，负责与面板保持连接、应用配置及回报状态。sing-box、xray、mbox 是承载代理协议的内核，不是另一套面板。用户的客户端则使用订阅里的地址与凭据连接节点。</p>
+<p>面板保存管理配置、提供网页入口，并把期望状态交给机器。机器上运行 agent 程序 <code>weir-agent</code>，负责与面板保持连接、应用配置及回报状态。sing-box、xray、mbox 是承载代理协议的代理内核，不是另一套面板。用户的客户端则使用订阅里的地址与凭据连接节点。</p>
 <p>因此，面板网页能打开，只说明管理入口可达；机器已接入，也不等于代理内核已有可用监听。排查时必须把管理连接与用户连接分开。</p>
 <p>继续阅读：<a href="../concepts/two-planes.html">面板与机器两个平面</a>。</p>
 <h2 id="管理连接与用户连接">管理连接与用户连接</h2>
-<p>节点程序的 <code>--panel</code> 指向面板的节点通信地址，首次接入还要带机器标识、接入令牌与面板证书指纹。网页入口与节点通信入口分开配置，不要把反向代理后的网页地址当作机器直连入口。</p>
-<p>节点程序可分别指定三个内核的二进制路径；某个路径留空表示禁用那个内核。面板与节点程序负责配置和监督，真正处理对应协议连接的是所选内核。选择协议前，先确定目标机器安装了能承载它的内核。</p>
-<p>继续阅读：<a href="../concepts/protocols-cores.html">协议与内核</a>。</p>
+<p>agent 程序的 <code>--panel</code> 指向面板控制口（<code>--node-addr</code> 配置的端口）的地址，首次接入还要带机器标识、接入令牌与面板证书指纹。网页入口与控制口分开配置，不要把反向代理后的网页地址当作机器直连入口。</p>
+<p>agent 程序可分别指定三个代理内核的二进制路径；某个路径留空表示禁用那个代理内核。面板与 agent 程序负责配置和监督，真正处理对应协议连接的是所选代理内核。选择协议前，先确定目标机器安装了能承载它的代理内核。</p>
+<p>继续阅读：<a href="../concepts/protocols-cores.html">协议与代理内核</a>。</p>
 <h2 id="从安装到交付">从安装到交付</h2>
-<p>先安装面板，确认网页和节点通信端口都可达；再让第一台机器接入并上线。随后建立协议配置、把它部署到机器，确认应用成功，再给用户配置套餐并交付订阅链接。这几步各有自己的完成条件，不用「已保存」替代「能连接」。</p>
-<p>只拿到账号或订阅链接的用户不必安装面板，也不必安装节点程序，直接按用户起步页选择客户端即可。</p>
+<p>先安装面板，确认网页和控制口都可达；再让第一台机器接入并上线。随后建立协议配置、把它部署到机器，确认应用成功，再给用户配置套餐并交付订阅链接。这几步各有自己的完成条件，不用「已保存」替代「能连接」。</p>
+<p>只拿到账号或订阅链接的用户不必安装面板，也不必安装 agent 程序，直接按用户起步页选择客户端即可。</p>
 <p>继续阅读：<a href="for-users.html">我是用户：从订阅到连上</a>。</p>
 <h2 id="下一步">下一步</h2>
 <ul>
 <li><a href="install-panel.html">安装面板</a></li>
 <li><a href="enroll-server.html">接入第一台服务器</a></li>
-<li><a href="first-node.html">发布第一个节点</a></li>
+<li><a href="first-proxy-endpoint.html">发布第一个节点</a></li>
 </ul>
 
                                 
@@ -1159,7 +1159,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"认识 weir","level":"2.1","depth":1,"next":{"title":"安装面板","level":"2.2","depth":1,"path":"start/install-panel.md","ref":"start/install-panel.md","articles":[]},"previous":{"title":"weir 手册","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.39"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"start/overview.md","mtime":"2026-10-13T09:45:12.396Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-11-16T14:23:59.411Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"认识 weir","level":"2.1","depth":1,"next":{"title":"安装面板","level":"2.2","depth":1,"path":"start/install-panel.md","ref":"start/install-panel.md","articles":[]},"previous":{"title":"weir 手册","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","-fontsettings"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"version":"v1.0.3-dev.40"},"title":"weir 手册","language":"zh-hans","gitbook":"*"},"file":{"path":"start/overview.md","mtime":"2026-11-20T09:41:05.909Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-11-20T15:14:34.552Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
